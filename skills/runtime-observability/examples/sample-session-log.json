@@ -1,0 +1,91 @@
+[
+  {
+    "timestamp": "2026-06-05T09:12:00Z",
+    "event_type": "user_request",
+    "actor": "user",
+    "status": "success",
+    "input_summary": "Analyze a skill run and explain tool usage, timing, token cost, and output quality."
+  },
+  {
+    "timestamp": "2026-06-05T09:12:02Z",
+    "event_type": "model_call",
+    "actor": "agent",
+    "model": "claude-sonnet-4-5",
+    "input_tokens": 1250,
+    "output_tokens": 210,
+    "duration_ms": 1900,
+    "status": "success",
+    "input_summary": "Initial planning call for observability analysis",
+    "output_summary": "Decides to inspect session log and fetch tool call details"
+  },
+  {
+    "timestamp": "2026-06-05T09:12:05Z",
+    "event_type": "tool_call",
+    "actor": "agent",
+    "tool_name": "session_logs",
+    "duration_ms": 820,
+    "status": "success",
+    "input_summary": "Fetch session log by session id sess_20260605_demo",
+    "output_summary": "Returned 8 events with mixed completeness"
+  },
+  {
+    "timestamp": "2026-06-05T09:12:09Z",
+    "event_type": "model_call",
+    "actor": "agent",
+    "model": "claude-sonnet-4-5",
+    "input_tokens": 9800,
+    "output_tokens": 420,
+    "duration_ms": 7300,
+    "status": "success",
+    "input_summary": "Large reasoning call that re-includes the entire fetched log and verbose formatting instructions",
+    "output_summary": "Chooses browser search to verify terminology and plans an execution report"
+  },
+  {
+    "timestamp": "2026-06-05T09:12:18Z",
+    "event_type": "tool_call",
+    "actor": "agent",
+    "tool_name": "browser",
+    "duration_ms": 2400,
+    "status": "success",
+    "input_summary": "Search for session log analysis terminology",
+    "output_summary": "Found generic articles about traces and timelines"
+  },
+  {
+    "timestamp": "2026-06-05T09:12:23Z",
+    "event_type": "tool_call",
+    "actor": "agent",
+    "tool_name": "browser",
+    "duration_ms": 2280,
+    "status": "success",
+    "input_summary": "Search for session log analysis terminology",
+    "output_summary": "Returned nearly the same result set as the previous browser call"
+  },
+  {
+    "timestamp": "2026-06-05T09:12:27Z",
+    "event_type": "tool_call",
+    "actor": "agent",
+    "tool_name": "read_file",
+    "duration_ms": 410,
+    "status": "success",
+    "input_summary": "Read local report template",
+    "output_summary": "Loaded report headings and issue format"
+  },
+  {
+    "timestamp": "2026-06-05T09:12:29Z",
+    "event_type": "model_call",
+    "actor": "agent",
+    "model": "claude-sonnet-4-5",
+    "input_tokens": 2100,
+    "output_tokens": 780,
+    "status": "success",
+    "input_summary": "Draft final observability report from gathered evidence",
+    "output_summary": "Produces timeline, token notes, and quality score"
+  },
+  {
+    "timestamp": "2026-06-05T09:12:34Z",
+    "event_type": "final_output",
+    "actor": "agent",
+    "status": "success",
+    "output_summary": "Structured report delivered to user"
+  }
+]

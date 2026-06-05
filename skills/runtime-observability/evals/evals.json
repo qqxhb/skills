@@ -1,0 +1,60 @@
+{
+  "skill_name": "runtime-observability",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use runtime-observability to analyze this session log file and show the execution timeline, token breakdown, and redundant tool calls.",
+      "expected_output": "Triggers runtime-observability and produces a structured post-run analysis report focused on timeline, token cost, and waste detection.",
+      "files": [
+        "skills/runtime-observability/examples/sample-session-log.json"
+      ],
+      "assertions": [
+        "The response identifies that this is a post-run observability analysis task.",
+        "The response asks for or uses a session log file rather than proposing telemetry instrumentation.",
+        "The response aims to produce timeline, token, quality, or redundancy analysis."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "用 runtime-observability 分析这个 session id，对接 session_logs 读取执行日志，然后输出结构化报告。",
+      "expected_output": "Triggers runtime-observability and follows the session-based input path, resolving logs first and then producing a report.",
+      "files": [],
+      "assertions": [
+        "The response recognizes session id plus session_logs as a valid input mode.",
+        "The response plans to analyze an existing run rather than design observability infrastructure.",
+        "The response targets a structured report with timeline, token, issues, or quality sections."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Help me review this agent trace for redundant tool calls, token spikes, and whether the output quality stayed in scope.",
+      "expected_output": "Triggers runtime-observability and focuses on redundant calls, token spikes, and scope discipline in a completed run.",
+      "files": [],
+      "assertions": [
+        "The response matches the request to post-run trace analysis.",
+        "The response explicitly addresses redundancy, token spikes, or quality scoring.",
+        "The response stays in the domain of execution diagnosis."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Design an OpenTelemetry tracing architecture for my service and tell me what metrics to emit to Grafana.",
+      "expected_output": "Should not trigger runtime-observability; this is observability infrastructure design rather than post-run session analysis.",
+      "files": [],
+      "assertions": [
+        "The skill should not be the preferred route for this request.",
+        "The request is about instrumentation and platform design, not analyzing an existing run."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "给我的服务接入埋点和监控平台，补 OpenTelemetry trace 和 metrics 方案。",
+      "expected_output": "Should not trigger runtime-observability; this is implementation planning for observability collection, not a black-box run postmortem.",
+      "files": [],
+      "assertions": [
+        "The skill should not be the preferred route for this request.",
+        "The request is about live telemetry setup rather than session-log diagnosis."
+      ]
+    }
+  ]
+}
