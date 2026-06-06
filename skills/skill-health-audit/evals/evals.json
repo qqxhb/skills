@@ -1,0 +1,34 @@
+{
+  "skill_name": "skill-health-audit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "audit my skills",
+      "expected_output": "Triggers skill-health-audit and generates a structured skill health report with delete/merge/keep/confirm buckets.",
+      "assertions": [
+        "The response recognizes this as a skill inventory cleanup request.",
+        "The response includes usage + redundancy + recommendation components.",
+        "The response proposes a reversible disable script instead of direct deletion."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "@bot 帮我清理 skills",
+      "expected_output": "Triggers skill-health-audit and outputs a Chinese skill health report with reasoned cleanup suggestions.",
+      "assertions": [
+        "The response uses a report-style structure for skill cleanup.",
+        "The response includes explicit reasons for each recommendation.",
+        "The response asks for confirmation before executing cleanup actions."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Please compare these two README files for style consistency.",
+      "expected_output": "Should not trigger skill-health-audit because the task is generic docs editing, not skills inventory governance.",
+      "assertions": [
+        "The skill is not preferred for generic README editing.",
+        "No forced cleanup report should be generated for unrelated tasks."
+      ]
+    }
+  ]
+}
