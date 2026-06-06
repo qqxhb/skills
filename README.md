@@ -1,15 +1,11 @@
-# Runtime Observability Skill
+# Skills
 
-This repository publishes the `runtime-observability` skill as a standalone open-source package.
+This repository publishes standalone AI agent skills.
 
-`runtime-observability` is a post-run observability skill for AI agents. It turns black-box runs into structured reports with:
+## Published Skills
 
-- execution timeline
-- tool and model usage
-- token and cost breakdown
-- redundant call detection
-- quality scoring
-- explicit data-gap disclosure
+- [runtime-observability](./skills/runtime-observability): post-run observability for AI agent sessions, including timeline, token, cost, redundancy, and quality reports.
+- [github-issue-agent](./skills/github-issue-agent): safe GitHub issue triage and handling workflow, including verified replies, bug/feature issue implementation, and PR preparation with user-confirmation gates.
 
 ## Repository Layout
 
@@ -18,35 +14,17 @@ This repository publishes the `runtime-observability` skill as a standalone open
 ├── LICENSE
 ├── README.md
 └── skills/
+    ├── github-issue-agent/
     └── runtime-observability/
-        ├── README.md
-        ├── SKILL.md
-        ├── evals/
-        ├── examples/
-        ├── references/
-        └── scripts/
 ```
 
-## Quick Start
+## Verification
 
-Generate a report from the bundled sample log:
+Each skill includes its own README with usage and verification notes:
 
-```bash
-python3 skills/runtime-observability/scripts/generate_report.py   --input skills/runtime-observability/examples/sample-session-log.json   --output /tmp/runtime-observability-sample-report.md   --source-label json_file
-```
+- `skills/runtime-observability/README.md`
+- `skills/github-issue-agent/README.md`
 
-Run the raw provider demo:
+## License
 
-```bash
-python3 skills/runtime-observability/scripts/generate_report.py   --session-id provider_demo   --provider-command 'python3 skills/runtime-observability/examples/mock_session_logs_provider.py --session-id {session_id}'   --output /tmp/runtime-observability-provider-report.md   --source-label session_logs
-```
-
-Validate the repository by running the sample report commands above and checking that the generated Markdown files exist and contain execution summary, timeline, and cost sections.
-
-## More Information
-
-See:
-
-- `skills/runtime-observability/README.md` for user-facing usage and verification
-- `skills/runtime-observability/SKILL.md` for agent/runtime instructions
-- `skills/runtime-observability/references/provider-contract.md` for external raw provider integration
+Apache-2.0. See `LICENSE`.

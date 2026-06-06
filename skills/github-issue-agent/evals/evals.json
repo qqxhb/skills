@@ -1,0 +1,41 @@
+{
+  "skill": "github-issue-agent",
+  "cases": [
+    {
+      "name": "analyze_issue",
+      "prompt": "Analyze GitHub issue #123 and tell me if it is still valid.",
+      "should_trigger": true,
+      "reason": "Direct GitHub issue analysis request."
+    },
+    {
+      "name": "draft_issue_reply",
+      "prompt": "Draft a reply for this GitHub issue, but do not post it yet.",
+      "should_trigger": true,
+      "reason": "Issue reply drafting request."
+    },
+    {
+      "name": "fix_issue_and_pr",
+      "prompt": "Fix issue #42 and open a PR after I approve the change.",
+      "should_trigger": true,
+      "reason": "Engineering workflow tied to a GitHub issue."
+    },
+    {
+      "name": "verify_pr_fixes_issue",
+      "prompt": "Check whether this PR really fixes the linked GitHub issue.",
+      "should_trigger": true,
+      "reason": "PR verification against issue behavior."
+    },
+    {
+      "name": "generic_code_review",
+      "prompt": "Review this code diff for bugs and style issues.",
+      "should_trigger": false,
+      "reason": "Generic code review should use a code-review skill instead."
+    },
+    {
+      "name": "general_git_help",
+      "prompt": "How do I rename a local git branch?",
+      "should_trigger": false,
+      "reason": "Generic git help is not GitHub issue handling."
+    }
+  ]
+}
