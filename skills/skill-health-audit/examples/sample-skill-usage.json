@@ -1,0 +1,199 @@
+{
+  "scan_date": "2026-06-06",
+  "skills": [
+    {
+      "name": "self-improving-agent",
+      "description": "Continuously improve prompts and execution strategy",
+      "calls_7d": 12,
+      "calls_30d": 25,
+      "calls_90d": 64,
+      "last_used_days": 1,
+      "failure_rate": 0.04,
+      "corrections": 1,
+      "token_share": 0.18,
+      "covered_by": []
+    },
+    {
+      "name": "tavily-search",
+      "description": "Web and retrieval search for external information",
+      "calls_7d": 8,
+      "calls_30d": 16,
+      "calls_90d": 40,
+      "last_used_days": 2,
+      "failure_rate": 0.08,
+      "corrections": 2,
+      "token_share": 0.11,
+      "covered_by": []
+    },
+    {
+      "name": "weather",
+      "description": "Get weather forecast",
+      "calls_7d": 0,
+      "calls_30d": 0,
+      "calls_90d": 0,
+      "last_used_days": 60,
+      "failure_rate": 0.0,
+      "corrections": 0,
+      "token_share": 0.0,
+      "covered_by": ["general-search"]
+    },
+    {
+      "name": "pollyreach",
+      "description": "Contact and outreach helper",
+      "calls_7d": 0,
+      "calls_30d": 0,
+      "calls_90d": 1,
+      "last_used_days": 60,
+      "failure_rate": 0.0,
+      "corrections": 0,
+      "token_share": 0.0,
+      "covered_by": ["workspace-tools"]
+    },
+    {
+      "name": "sonoscli",
+      "description": "Control Sonos devices",
+      "calls_7d": 0,
+      "calls_30d": 0,
+      "calls_90d": 0,
+      "last_used_days": 60,
+      "failure_rate": 0.0,
+      "corrections": 0,
+      "token_share": 0.0,
+      "covered_by": ["media-control"]
+    },
+    {
+      "name": "humanize-ai-text",
+      "description": "Rewrite AI-style text into more natural style",
+      "calls_7d": 0,
+      "calls_30d": 1,
+      "calls_90d": 3,
+      "last_used_days": 45,
+      "failure_rate": 0.1,
+      "corrections": 1,
+      "token_share": 0.01,
+      "covered_by": ["humanizer"]
+    },
+    {
+      "name": "humanizer",
+      "description": "Text polishing and naturalization",
+      "calls_7d": 1,
+      "calls_30d": 4,
+      "calls_90d": 11,
+      "last_used_days": 5,
+      "failure_rate": 0.05,
+      "corrections": 0,
+      "token_share": 0.03,
+      "covered_by": []
+    },
+    {
+      "name": "multi-search-engine",
+      "description": "Search across multiple web engines",
+      "calls_7d": 0,
+      "calls_30d": 0,
+      "calls_90d": 2,
+      "last_used_days": 60,
+      "failure_rate": 0.12,
+      "corrections": 1,
+      "token_share": 0.01,
+      "covered_by": ["tavily-search"]
+    },
+    {
+      "name": "skill-vetter",
+      "description": "Vet skill safety and policy compatibility",
+      "calls_7d": 0,
+      "calls_30d": 0,
+      "calls_90d": 0,
+      "last_used_days": 60,
+      "failure_rate": 0.0,
+      "corrections": 0,
+      "token_share": 0.0,
+      "covered_by": []
+    },
+    {
+      "name": "github",
+      "description": "GitHub operations and issue workflows",
+      "calls_7d": 1,
+      "calls_30d": 5,
+      "calls_90d": 17,
+      "last_used_days": 3,
+      "failure_rate": 0.06,
+      "corrections": 0,
+      "token_share": 0.06,
+      "covered_by": []
+    },
+    {
+      "name": "gog",
+      "description": "Code repository helper for dev workflows",
+      "calls_7d": 1,
+      "calls_30d": 4,
+      "calls_90d": 12,
+      "last_used_days": 4,
+      "failure_rate": 0.07,
+      "corrections": 1,
+      "token_share": 0.04,
+      "covered_by": ["workspace-tools"]
+    },
+    {
+      "name": "notion",
+      "description": "Notion docs and workspace interactions",
+      "calls_7d": 0,
+      "calls_30d": 3,
+      "calls_90d": 10,
+      "last_used_days": 8,
+      "failure_rate": 0.09,
+      "corrections": 1,
+      "token_share": 0.02,
+      "covered_by": ["workspace-tools"]
+    },
+    {
+      "name": "summarize",
+      "description": "Summarize long documents",
+      "calls_7d": 1,
+      "calls_30d": 6,
+      "calls_90d": 15,
+      "last_used_days": 2,
+      "failure_rate": 0.05,
+      "corrections": 1,
+      "token_share": 0.05,
+      "covered_by": []
+    },
+    {
+      "name": "nano-pdf",
+      "description": "PDF parsing and extraction",
+      "calls_7d": 0,
+      "calls_30d": 2,
+      "calls_90d": 7,
+      "last_used_days": 12,
+      "failure_rate": 0.08,
+      "corrections": 0,
+      "token_share": 0.02,
+      "covered_by": ["document-tools"]
+    },
+    {
+      "name": "obsidian",
+      "description": "Knowledge notes management",
+      "calls_7d": 0,
+      "calls_30d": 2,
+      "calls_90d": 9,
+      "last_used_days": 10,
+      "failure_rate": 0.07,
+      "corrections": 0,
+      "token_share": 0.02,
+      "covered_by": ["document-tools"]
+    }
+  ],
+  "redundancy_groups": [
+    {
+      "skills": ["github", "gog", "notion"],
+      "reason": "workspace integration overlap"
+    },
+    {
+      "skills": ["summarize", "nano-pdf", "obsidian"],
+      "reason": "document processing overlap"
+    },
+    {
+      "skills": ["humanize-ai-text", "humanizer"],
+      "reason": "text naturalization overlap"
+    }
+  ]
+}
